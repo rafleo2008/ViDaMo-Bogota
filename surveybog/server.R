@@ -14,7 +14,7 @@ shinyServer(function(input, output, session) {
     })
 #    dummyfunc <- eventReactive(input$actualizar,{dummycall(1)})
     output$utams <- renderLeaflet({
-        utams <- st_read(paste(here(),"surveybog","src","UTAM.shp", sep = "/"  ))
+        utams <- st_read(paste("src","UTAM.shp", sep = "/"  ))
 #        n <- dummyfunc()
         print(here())
         tmap_leaflet(tm_shape(utams) + tm_polygons("LOCNombre") )

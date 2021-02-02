@@ -1,6 +1,6 @@
 ##### Encuesta de movilidad de Bogotá, Dashboard
 ##### Librerías
-
+#install.packages('rsconnect')
 library(here)
 library(shiny)
 library(shinydashboard)
@@ -11,7 +11,6 @@ library(tmap)
 library(tmaptools)
 ##### Preparación
 
-setwd(here())
 ##### Cargar shapefiles
 
 #global$zones <- st_read(paste(here(),"use_cases",global$implementation_value,"zone_shapefile","zone_system.shp",sep="/"))
