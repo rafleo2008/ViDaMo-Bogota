@@ -13,12 +13,10 @@ library(tmaptools)
 
 setwd(here())
 ##### Cargar shapefiles
-utams <- st_read(paste(here(),"surveybog","src","UTAM.shp", sep = "/"  ))
 
 #global$zones <- st_read(paste(here(),"use_cases",global$implementation_value,"zone_shapefile","zone_system.shp",sep="/"))
 
 # Define UI for application that draws a histogram
-shinyApp(
     ui = dashboardPagePlus(
         header = dashboardHeaderPlus(
             enable_rightsidebar = TRUE,
@@ -91,6 +89,4 @@ shinyApp(
             )
         ),
         title = "Right Sidebar"
-    ),
-    server = function(input, output) { }
-)
+    )

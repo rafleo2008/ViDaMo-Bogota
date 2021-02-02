@@ -1,7 +1,7 @@
 library(shiny)
 
 # Define server logic 
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
     output$distPlot <- renderPlot({
 
         # generate bins based on input$bins from ui.R
@@ -12,11 +12,12 @@ shinyServer(function(input, output) {
         hist(x, breaks = bins, col = 'darkgray', border = 'white')
 
     })
-    dummyfunc <- eventReactive(input$actualizar,{dummycall(1)})
+#    dummyfunc <- eventReactive(input$actualizar,{dummycall(1)})
     output$utams <- renderLeaflet({
-        n <- dummyfunc()
-        print("estamos en el mapa!!")
-        tmap_leaflet(tm_shape(utams)+ tm_layout("UTAMS"))
+        utams <- st_read(paste(here(),"surveybog","src","UTAM.shp", sep = "/"  ))
+#        n <- dummyfunc()
+        print(here())
+        tmap_leaflet(tm_shape(utams) + tm_polygons("LOCNombre") )
     })
     
 
